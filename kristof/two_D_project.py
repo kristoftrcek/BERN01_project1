@@ -207,7 +207,7 @@ class Particle_config:
 
     def average_radial_density(self, n_bins=100):
         """
-        Counts particles with the same distances between them. Puts this num
+        Computes the histogram of distances between particles and computes the average radial density.
         """
         dx = self.x[:, np.newaxis] - self.x[np.newaxis, :]
         dy = self.y[:, np.newaxis] - self.y[np.newaxis, :]
@@ -224,7 +224,7 @@ class Particle_config:
         g_weights = 2 * np.pi * r_vals * dr # areas of circular strips
         n_b = self.N / self.L**2
         g_normalized = g / (n_b * g_weights)
-        return g_normalized, bin_edges
+        return g_normalized, r_vals
 
 
     def visualize(self, title="Particle Setup"):
