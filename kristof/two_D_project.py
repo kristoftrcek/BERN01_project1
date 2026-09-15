@@ -111,8 +111,8 @@ class Two_D_test:
             start = len(self.config.U_samples)
             self.config.U_samples = np.concatenate([self.config.U_samples, np.zeros(n_samples)])
             # self.config.ard_samples = np.concatenate([self.config.ard_samples, np.zeros(n_samples, n_bins)])
-            self.config.x_hist = np.concatenate([self.config.x_hist, np.zeros(n_samples, len(self.config.x))])
-            self.config.y_hist = np.concatenate([self.config.y_hist, np.zeros(n_samples, len(self.config.y))])
+            self.config.x_hist = np.concatenate([ self.config.x_hist, np.zeros((n_samples, len(self.config.x))) ])
+            self.config.y_hist = np.concatenate([ self.config.y_hist, np.zeros((n_samples, len(self.config.y))) ])
 
         U_accumulated = self.config.U_full(cap=np.inf)
         accepted = 0
